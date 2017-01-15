@@ -1452,14 +1452,6 @@ Discarded input sections
  .text          0x00000000        0x0 src\Pwm.o
  .data          0x00000000        0x0 src\Pwm.o
  .bss           0x00000000        0x0 src\Pwm.o
- .bss.gIC2Value
-                0x00000000        0x2 src\Pwm.o
- .bss.gDutyCycleIn
-                0x00000000        0x2 src\Pwm.o
- .bss.gDutyCycleOut
-                0x00000000        0x2 src\Pwm.o
- .bss.gFrequency
-                0x00000000        0x2 src\Pwm.o
  .text          0x00000000        0x0 src\funkcie.o
  .data          0x00000000        0x0 src\funkcie.o
  .bss           0x00000000        0x0 src\funkcie.o
@@ -2328,31 +2320,31 @@ LOAD c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib
                 0x0000065e       0x1d c:/program files (x86)/atollic/truestudio for arm 6.0.0/armtools/bin/../lib/gcc/arm-atollic-eabi/5.3.1/armv7-m/crtn.o
 OUTPUT(ZadanieScaraC.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x5133
+.debug_info     0x00000000     0x50ef
  .debug_info    0x00000000      0x55a Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .debug_info    0x0000055a      0x65f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .debug_info    0x00000bb9      0xa29 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .debug_info    0x000015e2     0x196f Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .debug_info    0x00002f51      0x9ce Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_info    0x0000391f      0x72b src\Pwm.o
- .debug_info    0x0000404a      0x863 src\funkcie.o
- .debug_info    0x000048ad      0x167 src\main.o
- .debug_info    0x00004a14       0x84 src\startup_stm32l1xx_hd.o
- .debug_info    0x00004a98      0x133 src\stm32l1xx_it.o
- .debug_info    0x00004bcb      0x568 src\system_stm32l1xx.o
+ .debug_info    0x0000391f      0x6e7 src\Pwm.o
+ .debug_info    0x00004006      0x863 src\funkcie.o
+ .debug_info    0x00004869      0x167 src\main.o
+ .debug_info    0x000049d0       0x84 src\startup_stm32l1xx_hd.o
+ .debug_info    0x00004a54      0x133 src\stm32l1xx_it.o
+ .debug_info    0x00004b87      0x568 src\system_stm32l1xx.o
 
-.debug_abbrev   0x00000000      0xd5d
+.debug_abbrev   0x00000000      0xd4e
  .debug_abbrev  0x00000000      0x149 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
  .debug_abbrev  0x00000149      0x1a9 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
  .debug_abbrev  0x000002f2      0x1e7 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_rcc.o
  .debug_abbrev  0x000004d9      0x1b4 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_tim.o
  .debug_abbrev  0x0000068d      0x159 Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
- .debug_abbrev  0x000007e6      0x13d src\Pwm.o
- .debug_abbrev  0x00000923      0x1ab src\funkcie.o
- .debug_abbrev  0x00000ace       0xcd src\main.o
- .debug_abbrev  0x00000b9b       0x12 src\startup_stm32l1xx_hd.o
- .debug_abbrev  0x00000bad       0x67 src\stm32l1xx_it.o
- .debug_abbrev  0x00000c14      0x149 src\system_stm32l1xx.o
+ .debug_abbrev  0x000007e6      0x12e src\Pwm.o
+ .debug_abbrev  0x00000914      0x1ab src\funkcie.o
+ .debug_abbrev  0x00000abf       0xcd src\main.o
+ .debug_abbrev  0x00000b8c       0x12 src\startup_stm32l1xx_hd.o
+ .debug_abbrev  0x00000b9e       0x67 src\stm32l1xx_it.o
+ .debug_abbrev  0x00000c05      0x149 src\system_stm32l1xx.o
 
 .debug_aranges  0x00000000      0x728
  .debug_aranges
@@ -2404,7 +2396,7 @@ OUTPUT(ZadanieScaraC.elf elf32-littlearm)
  .debug_line    0x00001fbd      0x1e7 src\stm32l1xx_it.o
  .debug_line    0x000021a4      0x21a src\system_stm32l1xx.o
 
-.debug_str      0x00000000     0x2172
+.debug_str      0x00000000     0x2142
  .debug_str     0x00000000      0x3d1 Libraries\STM32L1xx_StdPeriph_Driver\src\misc.o
                                 0x41e (size before relaxing)
  .debug_str     0x000003d1      0x33a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_gpio.o
@@ -2415,15 +2407,15 @@ OUTPUT(ZadanieScaraC.elf elf32-littlearm)
                                 0xc95 (size before relaxing)
  .debug_str     0x0000163d      0x42a Libraries\STM32L1xx_StdPeriph_Driver\src\stm32l1xx_usart.o
                                 0x6df (size before relaxing)
- .debug_str     0x00001a67      0x116 src\Pwm.o
-                                0x6b9 (size before relaxing)
- .debug_str     0x00001b7d      0x462 src\funkcie.o
+ .debug_str     0x00001a67       0xe6 src\Pwm.o
+                                0x689 (size before relaxing)
+ .debug_str     0x00001b4d      0x462 src\funkcie.o
                                 0x93e (size before relaxing)
- .debug_str     0x00001fdf       0x3f src\main.o
+ .debug_str     0x00001faf       0x3f src\main.o
                                 0x1da (size before relaxing)
- .debug_str     0x0000201e       0xa6 src\stm32l1xx_it.o
+ .debug_str     0x00001fee       0xa6 src\stm32l1xx_it.o
                                 0x22b (size before relaxing)
- .debug_str     0x000020c4       0xae src\system_stm32l1xx.o
+ .debug_str     0x00002094       0xae src\system_stm32l1xx.o
                                 0x38a (size before relaxing)
 
 .comment        0x00000000       0x7e

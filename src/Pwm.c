@@ -14,11 +14,6 @@ TIM_ICInitTypeDef TIM_ICInitStructure;
 
 uint16_t PrescalerValue = 0, timerPeriodValue=0;
 
-static uint16_t gIC2Value = 0;
-static uint16_t gDutyCycleIn = 0;
-static uint16_t gDutyCycleOut = 0;
-static uint16_t gFrequency = 0;
-
 
 
 void pwm_initOutput()

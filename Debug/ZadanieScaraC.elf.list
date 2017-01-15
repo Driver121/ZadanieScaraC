@@ -21,23 +21,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
   8 .ARM.attributes 00000029  00000000  00000000  00020084  2**0
                   CONTENTS, READONLY
-  9 .debug_info   00005133  00000000  00000000  000200ad  2**0
+  9 .debug_info   000050ef  00000000  00000000  000200ad  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 00000d5d  00000000  00000000  000251e0  2**0
+ 10 .debug_abbrev 00000d4e  00000000  00000000  0002519c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_aranges 00000728  00000000  00000000  00025f40  2**3
+ 11 .debug_aranges 00000728  00000000  00000000  00025ef0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000680  00000000  00000000  00026668  2**3
+ 12 .debug_ranges 00000680  00000000  00000000  00026618  2**3
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   000023be  00000000  00000000  00026ce8  2**0
+ 13 .debug_line   000023be  00000000  00000000  00026c98  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    00002172  00000000  00000000  000290a6  2**0
+ 14 .debug_str    00002142  00000000  00000000  00029056  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .comment      0000007e  00000000  00000000  0002b218  2**0
+ 15 .comment      0000007e  00000000  00000000  0002b198  2**0
                   CONTENTS, READONLY
- 16 .debug_frame  00002428  00000000  00000000  0002b298  2**2
+ 16 .debug_frame  00002428  00000000  00000000  0002b218  2**2
                   CONTENTS, READONLY, DEBUGGING
- 17 .stabstr      000000df  00000000  00000000  0002d6c0  2**0
+ 17 .stabstr      000000df  00000000  00000000  0002d640  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -2119,7 +2119,7 @@ void USART_ClearITPendingBit(USART_TypeDef* USARTx, uint16_t USART_IT)
  8000c3e:	4770      	bx	lr
 
 08000c40 <pwm_initOutput>:
-static uint16_t gFrequency = 0;
+uint16_t PrescalerValue = 0, timerPeriodValue=0;
 
 
 
