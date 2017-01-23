@@ -4,7 +4,7 @@
 #include "stm32l1xx.h"
 #include "stm32l1xx_it.h"
 
-TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
+TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure,TIM_TimeBaseStructure1;
 TIM_OCInitTypeDef  TIM_OCInitStructure;
 GPIO_InitTypeDef GPIO_InitStructure;
 GPIO_InitTypeDef GPIO_InitStructure1;
@@ -52,22 +52,26 @@ void pwm_initOutput()
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_TIM3); //
 
 	/* Compute the prescaler value */
-	PrescalerValue = (uint16_t) 84; //(SystemCoreClock / 1000000) - 1;
+	PrescalerValue = (uint16_t) 16; //160
 
-	// Dáme deleno 50 lebo máme 50 H
-	timerPeriodValue = (1000000/50) - 1;
+	// Dáme deleno 50 lebo máme 50 Hz
+	timerPeriodValue = (2000/300) - 1;
 	/* Time base configuration */
-	TIM_TimeBaseStructure.TIM_Period = 19999;//timerPeriodValue;
+	TIM_TimeBaseStructure.TIM_Period = 3332;//1999
 	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue; //PrescalerValue;
 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
+	TIM_TimeBaseStructure1.TIM_Period =19999 ;//18500 //19999
+    TIM_TimeBaseStructure1.TIM_Prescaler = PrescalerValue; //PrescalerValue;
+    TIM_TimeBaseStructure1.TIM_ClockDivision = 0;
+    TIM_TimeBaseStructure1.TIM_CounterMode = TIM_CounterMode_Up;
 
    /* Inicializácia Timerov */
 	TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
 	TIM_Cmd(TIM4, ENABLE);  //
 
-	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);
+	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure1);
 	TIM_Cmd(TIM3, ENABLE);
 
 	/* PWM1 Mode configuration: Channel1 */

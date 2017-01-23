@@ -73,8 +73,8 @@ int main(void)
   initUSART2();
   pwm_initOutput();
 
-//  TIM3->CCR1=148; //motor ceruzka
-//  TIM3->CCR1=250; //motor ceruzka
+ // TIM3->CCR1=90; //motor ceruzka
+ // TIM3->CCR1=100; //motor ceruzka
 
 //  TIM3->CCR2=108;  // hodnota 0stupnov pre malý motor motor
 //  TIM3->CCR2=450;  // hodnota 150 stupnov maly motor motor
@@ -85,20 +85,79 @@ int main(void)
 //  TIM4->CCR1=147;  // hodnota 0stupnov pre velky motor
 //  TIM4->CCR1=410;  // hodnota 150 stupnov velky motor
 
-//  TIM4->CCR1=147;  // hodnota 0stupnov pre velky motor
-//  TIM4->CCR1=410;   // hodnota 150 stupnov velky motor
+     // hodnota 0stupnov pre velky motor
+ //  TIM3->CCR2=100;   // hodnota 150 stupnov velky motor
+
+ //  TIM3->CCR2 = 500;       // 600 == 0.6 ms  -> 0'
+
+ //  TIM3->CCR2 = 15000;
 
 
 
+ // TIM3->CCR1 = 600;
+// TIM3->CCR2 =600;   // 0
+//  TIM3->CCR2 =2300;  // 160
+//  TIM3->CCR1 = 210;
+/*
+  TIM3->CCR1 = 1300;
+  TIM3->CCR1 = 2300;
+  */
+ // TIM3->CCR2 = 2050;
 
+
+/*
+  TIM3->CCR2 = 600;
+  TIM3->CCR2 = 2100;
+*/
+/*
+  TIM3->CCR2=800;
+ // TIM3->CCR2=2050;
+
+/*
+  TIM4->CCR1=800;
+  TIM4->CCR1=2050;
+
+
+  TIM3->CCR2=600;
+  TIM3->CCR2=2100;
+*/
 
 
   /* Infinite loop */
   while (1)
   {
+      // Velky motor
+/*
+	  for (int i = 0 ;i<500000;i++)
+	  {
+	  TIM4->CCR1=800;   //60 pre maly motor // 80 pre velky motor
+	  }
+	  for (int i = 0 ;i<500000;i++)
+	  {
 
-	  RegisterCallbackUART2(vykresli);
+	  }
+	  for (int i = 0 ;i<500000;i++)
+	  {
+	    TIM4->CCR1=2050;   //210 pre maly motor // 215 pre velky motor
+	  }
+*/
+	  //maly motor
+/*
+	  for (int i = 0 ;i<500000;i++)
+	  	  {
+	  	  TIM3->CCR2=600;   //600 pre maly motor // 80 pre velky motor
+	  	  }
+	  	  for (int i = 0 ;i<500000;i++)
+	  	  {
 
+	  	  }
+	  	  for (int i = 0 ;i<500000;i++)
+	  	  {
+	  	    TIM3->CCR2=2100;   //2100 pre maly motor // 215 pre velky motor
+	  	  }
+*/
+
+	RegisterCallbackUART2(vykresli);
 
 	i++;
   }

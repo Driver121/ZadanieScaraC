@@ -132,17 +132,19 @@ void vykresli(char hodnota[]){
 	 {
 	      if(retazicek[3]=='0')   // Nastav pero na pisanie
 	                	  {
-	                		  nastavPero(90); // hodnota pre zlozenie pera
+	                		  nastavPero(1100); // hodnota pre zlozenie pera
 
 	                		//  pockaj();
 
 	                		  hodnotaPWM1[0]=retazicek[5];
 	                		  hodnotaPWM1[1]=retazicek[6];
 	                		  hodnotaPWM1[2]=retazicek[7];
+	                		  hodnotaPWM1[3]=retazicek[8];
 
-	                		  hodnotaPWM2[0]=retazicek[9];
-	                		  hodnotaPWM2[1]=retazicek[10];
-	                		  hodnotaPWM2[2]=retazicek[11];
+	                		  hodnotaPWM2[0]=retazicek[10];
+	                		  hodnotaPWM2[1]=retazicek[11];
+	                		  hodnotaPWM2[2]=retazicek[12];
+	                		  hodnotaPWM2[3]=retazicek[13];
 
 	                		  sscanf(hodnotaPWM1,"%d",&hVelkyMotor);
 	                		  sscanf(hodnotaPWM2,"%d",&hMalyMotor);
@@ -154,15 +156,17 @@ void vykresli(char hodnota[]){
 	                	  }
 	                	  else   // Zodvihni pero
 	                	  {
-	                		  nastavPero(130); // hodnota pre zdvyhnutie pera
+	                		  nastavPero(1700); // hodnota pre zdvyhnutie pera
 	                	//	  pockaj();
 	                		  hodnotaPWM1[0]=retazicek[5];
 	                		  hodnotaPWM1[1]=retazicek[6];
 	                		  hodnotaPWM1[2]=retazicek[7];
+	                		  hodnotaPWM1[3]=retazicek[8];
 
-	                		  hodnotaPWM2[0]=retazicek[9];
-	                		  hodnotaPWM2[1]=retazicek[10];
-	                		  hodnotaPWM2[2]=retazicek[11];
+							  hodnotaPWM2[0]=retazicek[10];
+							  hodnotaPWM2[1]=retazicek[11];
+							  hodnotaPWM2[2]=retazicek[12];
+							  hodnotaPWM2[3]=retazicek[13];
 
 	                		  sscanf(hodnotaPWM1,"%d",&hVelkyMotor);
 	                		  sscanf(hodnotaPWM2,"%d",&hMalyMotor);
@@ -173,26 +177,48 @@ void vykresli(char hodnota[]){
 	                  }
 	 if(retazicek[0]=='K')
 	                  {
+                           if (retazicek[7]=='0')
+                           {
+	                	  	   nastavPero(1100); // hodnota pre zlozenie pera
 
-
-	                	  	   nastavPero(90); // hodnota pre zlozenie pera
-	                	  	     // od 5 -7
-	                	  	     //  pockaj();
 
 	                	  	    hodnotaPWM1[0]=retazicek[9];
 	                	  	    hodnotaPWM1[1]=retazicek[10];
 	                	  	    hodnotaPWM1[2]=retazicek[11];
+	                	  	    hodnotaPWM1[3]=retazicek[12];
 
-	                	  	    hodnotaPWM2[0]=retazicek[13];
-	                	  	    hodnotaPWM2[1]=retazicek[14];
-	                	  	    hodnotaPWM2[2]=retazicek[15];
+	                	  	    hodnotaPWM2[0]=retazicek[14];
+	                	  	    hodnotaPWM2[1]=retazicek[15];
+	                	  	    hodnotaPWM2[2]=retazicek[16];
+	                	  	    hodnotaPWM2[3 ]=retazicek[17];
 
 	                	  	   sscanf(hodnotaPWM1,"%d",&hVelkyMotor);
 	                	  	   sscanf(hodnotaPWM2,"%d",&hMalyMotor);
 
 	                	  	   nastavVelkyMotor(hVelkyMotor);
 	                	  	   nastavMalyMotor(hMalyMotor);
+                           }
+                           else
+                           {
+                        	   nastavPero(1700); // hodnota zdvihnutie zlozenie pera
 
+
+								hodnotaPWM1[0]=retazicek[9];
+								hodnotaPWM1[1]=retazicek[10];
+								hodnotaPWM1[2]=retazicek[11];
+								hodnotaPWM1[3]=retazicek[12];
+
+								hodnotaPWM2[0]=retazicek[14];
+								hodnotaPWM2[1]=retazicek[15];
+								hodnotaPWM2[2]=retazicek[16];
+								hodnotaPWM2[3 ]=retazicek[17];
+
+							   sscanf(hodnotaPWM1,"%d",&hVelkyMotor);
+							   sscanf(hodnotaPWM2,"%d",&hMalyMotor);
+
+							   nastavVelkyMotor(hVelkyMotor);
+							   nastavMalyMotor(hMalyMotor);
+                           }
 
 
 
