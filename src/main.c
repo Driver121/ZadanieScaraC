@@ -104,10 +104,10 @@ int main(void)
   */
  // TIM3->CCR2 = 2050;
 
-
 /*
-  TIM3->CCR2 = 600;
-  TIM3->CCR2 = 2100;
+
+  TIM3->CCR1 = 1300;
+  TIM3->CCR1 = 1700;
 */
 /*
   TIM3->CCR2=800;

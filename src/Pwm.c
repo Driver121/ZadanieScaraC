@@ -15,7 +15,9 @@ TIM_ICInitTypeDef TIM_ICInitStructure;
 uint16_t PrescalerValue = 0, timerPeriodValue=0;
 
 
+/*T·to funkcia ma na starosù nastavenie GPIO,ËasovaËov a PWM . Tie sme nastavily podæa motorov ktorÈ sme mali dostupnÈ
 
+ */
 void pwm_initOutput()
 {
 	 /* TIMX clock enable */
@@ -26,15 +28,15 @@ void pwm_initOutput()
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
 
 
-	/*--------------------------------- GPIO Configuration -------------------------*/
-	/* GPIOB Configuration: Pin 6 */
+	/*--------------------------------- GPIO nastavenie -------------------------*/
+	/* GPIOB nastavenie : Pin 6 */
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_6 ;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_40MHz;
 
-	// GPIOA Configuration: Pin 6 | Pin 7
+	// GPIOA nastavenie: Pin 6 | Pin 7
 	GPIO_InitStructure1.GPIO_Pin =  GPIO_Pin_6 | GPIO_Pin_7;
 	GPIO_InitStructure1.GPIO_Mode = GPIO_Mode_AF;
 	GPIO_InitStructure1.GPIO_OType = GPIO_OType_PP;
@@ -51,19 +53,22 @@ void pwm_initOutput()
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource7, GPIO_AF_TIM3); //
 	GPIO_PinAFConfig(GPIOA, GPIO_PinSource6, GPIO_AF_TIM3); //
 
-	/* Compute the prescaler value */
-	PrescalerValue = (uint16_t) 16; //160
+	/* Nastavenie predeliËky  */
+	PrescalerValue = (uint16_t) 16;
 
-	// D·me deleno 50 lebo m·me 50 Hz
-	timerPeriodValue = (2000/300) - 1;
-	/* Time base configuration */
-	TIM_TimeBaseStructure.TIM_Period = 3332;//1999
-	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue; //PrescalerValue;
+
+	/*Nastavenie ËasovaËa pre digit·lny motor */
+	/*Nastavenie pre digit·lny motor nastavenie na 300 Hz */
+
+	TIM_TimeBaseStructure.TIM_Period = 3332;
+	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;
 	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 
-	TIM_TimeBaseStructure1.TIM_Period =19999 ;//18500 //19999
-    TIM_TimeBaseStructure1.TIM_Prescaler = PrescalerValue; //PrescalerValue;
+	/*Nastavenie ËasovaËa pre analÛgov˝ motor */
+	/*Nastavenie pre analÛgov˝  motor nastavenie na 50 Hz */
+	TIM_TimeBaseStructure1.TIM_Period =19999 ;
+    TIM_TimeBaseStructure1.TIM_Prescaler = PrescalerValue;
     TIM_TimeBaseStructure1.TIM_ClockDivision = 0;
     TIM_TimeBaseStructure1.TIM_CounterMode = TIM_CounterMode_Up;
 
@@ -74,17 +79,18 @@ void pwm_initOutput()
 	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure1);
 	TIM_Cmd(TIM3, ENABLE);
 
-	/* PWM1 Mode configuration: Channel1 */
+	/* PWM1 Mode configuration: Channel1 / Chnnel 2 */
 
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
-	TIM_OCInitStructure.TIM_Pulse = 0;//1000 - 1
+	TIM_OCInitStructure.TIM_Pulse = 0;
 	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
 
-	/*Nastavenie Chanelov */
+	/*Nastavenie channelov */
 	TIM_OC1Init(TIM4, &TIM_OCInitStructure); //
     TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
 
+    /* TIM3 m· dva Channel 1 a Channel 2 */
     TIM_OC1Init(TIM3, &TIM_OCInitStructure); //
     TIM_OC1PreloadConfig(TIM3, TIM_OCPreload_Enable);
 
